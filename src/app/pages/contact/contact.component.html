@@ -1,0 +1,213 @@
+<!-- ===== HERO ===== -->
+<section class="contact-hero">
+  <div class="hero-bg">
+    <img src="assets/images/hero-truck.jpg" alt="">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <h1 class="contact-title">
+      <span class="ct-contact">Contact</span>
+      <span class="ct-us">US</span>
+    </h1>
+    <p class="contact-subtitle">We're here to serve up the cheat. Let's connect!</p>
+  </div>
+</section>
+
+<!-- ===== WAYS TO REACH ===== -->
+<section class="reach-section">
+  <div class="reach-container">
+    <h2 class="reach-heading">Ways to Reach Us</h2>
+
+    <div class="reach-grid">
+      <div class="reach-card">
+        <div class="reach-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.62-1.62a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="reach-label">Call Us</div>
+        <a href="tel:2015551976" class="reach-value">(201) 555-1976</a>
+        <span class="reach-sub">Mon – Fri: 10AM – 6PM</span>
+      </div>
+
+      <div class="reach-card reach-card-mid">
+        <div class="reach-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="reach-label">Email Us</div>
+        <a href="mailto:info@thecheattruckny.com" class="reach-value">info&#64;thecheattruckny.com</a>
+        <span class="reach-sub">We'll get back to you ASAP!</span>
+      </div>
+
+      <div class="reach-card">
+        <div class="reach-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="reach-label">Based In</div>
+        <span class="reach-value">New Jersey</span>
+        <span class="reach-sub">Serving NJ &amp; Beyond</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM + SIDEBAR ===== -->
+<section class="form-section">
+  <div class="form-container">
+
+    <!-- Form -->
+    <div class="form-col">
+      <h2 class="form-heading">Send us a Message</h2>
+      <div class="form-underline"></div>
+
+      @if (success) {
+        <div class="success-msg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          Message sent! We'll be in touch soon.
+        </div>
+      }
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="field">
+          <input formControlName="fullName" type="text" placeholder="Full Name*"
+                 [class.invalid]="submitted && f['fullName'].errors">
+          @if (submitted && f['fullName'].errors) {
+            <span class="err">Full name is required</span>
+          }
+        </div>
+
+        <div class="field">
+          <input formControlName="email" type="email" placeholder="Email Address*"
+                 [class.invalid]="submitted && f['email'].errors">
+          @if (submitted && f['email'].errors) {
+            <span class="err">Valid email is required</span>
+          }
+        </div>
+
+        <div class="field">
+          <input formControlName="phone" type="tel" placeholder="Phone Number">
+        </div>
+
+        <div class="field">
+          <select formControlName="eventType">
+            <option value="" disabled selected>Event Type</option>
+            @for (type of eventTypes; track type) {
+              <option [value]="type">{{ type }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="field">
+          <textarea formControlName="message" rows="5" placeholder="Tell us about your event*"
+                    [class.invalid]="submitted && f['message'].errors"></textarea>
+          @if (submitted && f['message'].errors) {
+            <span class="err">Please tell us about your event</span>
+          }
+        </div>
+
+        <button type="submit" class="btn-send">Send Message</button>
+
+        <p class="form-note">
+          <span class="note-star">&#9733;</span>
+          The more details you share, the better we can serve you.
+        </p>
+      </form>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar-col">
+      <div class="sidebar-block">
+        <h3 class="sidebar-heading">We Cater It All</h3>
+        <p class="sidebar-sub">From intimate gatherings to epic celebrations.</p>
+        <ul class="cater-list">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            Private Parties
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+            </svg>
+            Corporate Events
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+            Weddings
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+            </svg>
+            Birthdays
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            Festivals &amp; More
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-block faq-block">
+        <h3 class="sidebar-heading">Have a Question?</h3>
+        <p class="sidebar-sub">Check out our FAQ or give us a call.</p>
+        <a href="tel:2015551976" class="btn-faq">View FAQ</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== INSTAGRAM ===== -->
+<section class="ig-section">
+  <div class="ig-container">
+    <div class="ig-left">
+      <div class="ig-tag-text">
+        <span class="ig-tag-line1">Tag us on</span>
+        <span class="ig-tag-line2">Instagram</span>
+        <div class="ig-logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="url(#igGrad)">
+            <defs>
+              <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#f09433"/>
+                <stop offset="25%" style="stop-color:#e6683c"/>
+                <stop offset="50%" style="stop-color:#dc2743"/>
+                <stop offset="75%" style="stop-color:#cc2366"/>
+                <stop offset="100%" style="stop-color:#bc1888"/>
+              </linearGradient>
+            </defs>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <span class="ig-tag-to">to be featured!</span>
+      </div>
+    </div>
+
+    <div class="ig-right">
+      <div class="ig-info">
+        <h3 class="ig-share-title">Share Your Cheat Meal</h3>
+        <p class="ig-share-desc">Don't forget to tag us <a href="https://instagram.com/thecheattruckny" target="_blank" rel="noopener">&#64;thecheattruckny</a></p>
+        <p class="ig-share-sub">We love seeing you enjoy the cheat!</p>
+      </div>
+      <div class="ig-photos">
+        <div class="ig-photo"><img src="assets/images/ig-1.jpg" alt="CheatTruck pizza"></div>
+        <div class="ig-photo"><img src="assets/images/ig-2.jpg" alt="CheatTruck pizza"></div>
+        <div class="ig-photo"><img src="assets/images/ig-3.jpg" alt="CheatTruck pizza"></div>
+        <div class="ig-photo"><img src="assets/images/ig-4.jpg" alt="CheatTruck pizza"></div>
+      </div>
+    </div>
+  </div>
+</section>

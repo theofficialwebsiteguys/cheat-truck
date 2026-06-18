@@ -1,0 +1,123 @@
+@use 'sass:color' as c;
+$red: #cc0000;
+$white: #ffffff;
+$gray: #aaaaaa;
+
+.footer {
+  background: #080808;
+  border-top: 1px solid rgba($red, 0.3);
+  padding-top: 40px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $gray;
+}
+
+// ---- Social ----
+.social-icons {
+  display: flex;
+  gap: 16px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba($white, 0.15);
+    color: rgba($white, 0.7);
+    transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+    svg { width: 16px; height: 16px; }
+
+    &:hover {
+      color: $white;
+      border-color: $red;
+      box-shadow: 0 0 10px rgba($red, 0.4);
+    }
+  }
+}
+
+// ---- Center ----
+.footer-center {
+  text-align: center;
+  align-items: center;
+}
+
+.footer-location {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba($white, 0.5);
+}
+
+.footer-tagline {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba($white, 0.7);
+}
+
+// ---- Email ----
+.footer-contact {
+  align-items: flex-end;
+
+  @media (max-width: 600px) {
+    align-items: center;
+  }
+}
+
+.footer-email {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: $red;
+  transition: color 0.2s ease;
+
+  &:hover { color: c.adjust($red, $lightness: 15%); }
+}
+
+// ---- Bottom Bar ----
+.footer-bottom {
+  border-top: 1px solid rgba($white, 0.06);
+  padding: 16px 24px;
+  text-align: center;
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.75rem;
+    color: rgba($white, 0.3);
+    letter-spacing: 0.05em;
+  }
+}

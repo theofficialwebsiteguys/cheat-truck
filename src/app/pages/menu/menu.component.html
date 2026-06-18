@@ -1,0 +1,85 @@
+<!-- ===== PAGE HEADER ===== -->
+<div class="menu-header">
+  <div class="menu-header-stars">
+    <span class="star">&#9733;</span>
+    <h1 class="menu-title">Our Menu</h1>
+    <span class="star">&#9733;</span>
+  </div>
+  <div class="red-underline"></div>
+  <p class="menu-subtitle">Authentic Italian. Bold Flavors. Made to Cheat.</p>
+</div>
+
+<!-- ===== DESSERT PIZZA ===== -->
+<section class="menu-section dessert-section">
+  <div class="section-container">
+    <div class="menu-box blue-box">
+
+      <div class="menu-box-content">
+        <div class="menu-box-text">
+          <h2 class="section-name dessert-name">Dessert Pizza</h2>
+          <p class="section-sub">Sweet. Indulgent. Unforgettable.</p>
+
+          <div class="items-grid">
+            @for (item of dessertPizzas; track item.name) {
+              <div class="menu-item">
+                <span class="item-name">{{ item.name }}</span>
+                <span class="item-desc">{{ item.desc }}</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="menu-box-image">
+          <img src="assets/images/pizza-dessert.png" alt="Dessert Pizza">
+          <div class="watermark">
+            <img src="assets/images/logo-watermark.png" alt="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRADITIONAL TOPPINGS ===== -->
+<section class="menu-section traditional-section">
+  <div class="section-container">
+    <div class="menu-box red-box">
+
+      <div class="menu-box-content reverse">
+        <div class="menu-box-image">
+          <img src="assets/images/pizza-traditional.png" alt="Traditional Pizza">
+        </div>
+
+        <div class="menu-box-text">
+          <h2 class="section-name traditional-name">Traditional Toppings</h2>
+          <p class="section-sub">Classic Flavors. Timeless Favorites.</p>
+
+          <div class="items-grid">
+            @for (item of traditionalToppings; track item.name) {
+              <div class="menu-item">
+                <span class="item-name red-name">{{ item.name }}</span>
+                <span class="item-desc">{{ item.desc }}</span>
+              </div>
+            }
+          </div>
+
+          <p class="addl-note">*additional toppings may be available upon request</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="menu-cta">
+  <div class="cta-inner">
+    <span class="cta-star">&#9733;</span>
+    <div class="cta-text">
+      <h3 class="cta-heading">Craving Something Specific?</h3>
+      <p class="cta-desc">Additional toppings may be available upon request.<br>Just ask our team—we're happy to customize your pie!</p>
+    </div>
+    <a routerLink="/contact" class="btn-view-menu">View Full Menu</a>
+  </div>
+</section>
