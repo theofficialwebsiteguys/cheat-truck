@@ -1,290 +1,376 @@
 @use 'sass:color' as c;
 $red: #cc0000;
+$blue: #2196f3;
 $white: #ffffff;
 $bg: #0a0a0a;
 
 // =============================================
-// HERO
+// HEADER
 // =============================================
-.catering-hero {
+.cp-header {
   background: $bg;
-  padding: 120px 24px 64px;
+  padding: 120px 24px 40px;
   text-align: center;
+}
+
+.cp-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  line-height: 1;
 }
 
-.hero-logo {
-  img {
-    height: 100px;
-    width: auto;
-    object-fit: contain;
-    margin: 0 auto;
-
-    &:not([src]), &[src=''] { display: none; }
-  }
-}
-
-.logo-text-fallback {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.1;
-}
-
-.lt-the {
+.cp-catering {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.4rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   color: $white;
 }
-.lt-cheat {
+
+.cp-pricing {
   font-family: 'Permanent Marker', cursive;
-  font-size: 3rem;
+  font-size: clamp(3rem, 9vw, 6rem);
   color: $red;
-  text-shadow: 0 0 16px rgba($red, 0.5);
-}
-.lt-ny {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 1.8rem;
-  letter-spacing: 0.15em;
-  color: $white;
-}
-.lt-by {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  color: rgba($white, 0.4);
-  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba($red, 0.6), 0 0 40px rgba($red, 0.3);
   margin-top: 4px;
 }
 
-.catering-headline {
-  font-family: 'Bebas Neue', cursive;
-  font-size: clamp(3rem, 8vw, 6rem);
-  letter-spacing: 0.04em;
-  line-height: 1.05;
-  color: $white;
-  text-transform: uppercase;
-}
-
-.headline-red {
-  color: $red;
-  text-shadow: 0 0 20px rgba($red, 0.5);
-}
-
-.catering-desc {
-  max-width: 680px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    color: rgba($white, 0.72);
-    line-height: 1.85;
-    text-align: center;
-  }
-}
-
-// =============================================
-// PERFECT FOR
-// =============================================
-.perfect-for {
-  background: #0d0d0d;
-  padding: 48px 24px 56px;
-  border-top: 1px solid rgba($white, 0.05);
-}
-
-.pf-container {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
-.pf-label {
+.cp-subtitle-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
-
-  span {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: $red;
-    white-space: nowrap;
-    text-shadow: 0 0 8px rgba($red, 0.4);
-  }
+  margin-top: 20px;
 }
 
-.pf-line {
-  flex: 1;
+.cp-line {
   width: 60px;
   height: 1px;
-  background: $red;
-  opacity: 0.4;
+  background: rgba($white, 0.4);
 }
 
-.pf-icons {
-  display: flex;
-  justify-content: center;
-  gap: 32px 48px;
-  flex-wrap: wrap;
+.cp-subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba($white, 0.7);
+  white-space: nowrap;
 }
 
-.pf-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 100px;
-  text-align: center;
+// =============================================
+// PRICING BOX
+// =============================================
+.cp-pricing-section {
+  background: $bg;
+  padding: 0 24px 48px;
+}
 
-  span {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba($white, 0.6);
-    line-height: 1.4;
+.cp-pricing-box {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 1.5px solid $blue;
+  border-radius: 12px;
+  box-shadow: 0 0 14px rgba($blue, 0.5), 0 0 30px rgba($blue, 0.15), inset 0 0 16px rgba($blue, 0.04);
+  padding: 36px 32px 24px;
+}
+
+.cp-pricing-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 }
 
-.pf-icon {
-  width: 56px;
-  height: 56px;
+.cp-pricing-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 0 12px;
+  border-right: 1px solid rgba($blue, 0.25);
+
+  &:last-child { border-right: none; }
+
+  @media (max-width: 640px) {
+    border-right: none;
+    border-bottom: 1px solid rgba($blue, 0.25);
+    padding-bottom: 24px;
+
+    &:last-child { border-bottom: none; padding-bottom: 0; }
+  }
+}
+
+.cp-icon {
+  font-size: 1.8rem;
+  color: $blue;
+  filter: drop-shadow(0 0 6px rgba($blue, 0.6));
+  margin-bottom: 6px;
+}
+
+.cp-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: rgba($white, 0.75);
-  stroke: currentColor;
+}
 
-  svg { width: 100%; height: 100%; }
+.cp-number {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.6rem;
+  color: $white;
+  text-shadow: 0 0 10px rgba($red, 0.6), 0 0 2px rgba($white, 0.6);
+  line-height: 1;
+  margin: 2px 0;
+}
+
+.cp-sublabel {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba($white, 0.4);
+  margin-top: -4px;
+}
+
+.cp-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba($blue, 0.2);
+  flex-wrap: wrap;
+
+  span:not(.cp-cat-divider) {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba($white, 0.65);
+  }
+}
+
+.cp-cat-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba($white, 0.25);
 }
 
 // =============================================
-// FEATURE PHOTO
+// BOOK THE TRUCK BANNER
 // =============================================
-.feature-photo {
-  background: #000;
+.cp-banner-section {
+  background: $bg;
+  padding: 0 24px 48px;
 }
 
-.photo-container {
-  position: relative;
-  max-height: 520px;
-  overflow: hidden;
+.cp-banner {
+  display: block;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $white;
+  background: linear-gradient(to bottom, c.adjust($red, $lightness: 6%), $red);
+  padding: 18px 24px;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba($red, 0.6), 0 0 40px rgba($red, 0.25);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 28px rgba($red, 0.8), 0 0 50px rgba($red, 0.35);
+    transform: translateY(-1px);
+  }
+}
+
+// =============================================
+// INCLUSIONS + ADD-ONS
+// =============================================
+.cp-details {
+  background: $bg;
+  padding: 0 24px 48px;
+}
+
+.cp-details-grid {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.cp-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: rgba($white, 0.85);
+    line-height: 1.4;
+  }
+
+  i {
+    color: $red;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+}
+
+.cp-addons-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  color: $white;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+
+  i {
+    color: $red;
+    filter: drop-shadow(0 0 4px rgba($red, 0.6));
+  }
+}
+
+.cp-addons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: rgba($white, 0.85);
+    line-height: 1.4;
+  }
+
+  i {
+    color: $red;
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 18px;
+  }
+}
+
+// =============================================
+// CONTACT INFO
+// =============================================
+.cp-contact {
+  background: #050505;
+  border-top: 1px solid rgba($red, 0.15);
+  padding: 48px 24px;
+}
+
+.cp-contact-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.cp-contact-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: 1;
+}
+
+.cp-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $white;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid rgba($red, 0.5);
+  box-shadow: 0 1px 8px rgba($red, 0.3);
+  transition: color 0.2s ease;
+
+  i {
+    color: $red;
+    font-size: 1.1rem;
+    filter: drop-shadow(0 0 6px rgba($red, 0.6));
+    width: 20px;
+    text-align: center;
+  }
+
+  &:hover { color: $red; }
+}
+
+.cp-mascot {
+  flex-shrink: 0;
+  width: 120px;
 
   img {
     width: 100%;
-    height: 520px;
-    object-fit: cover;
-    object-position: center 30%;
-    display: block;
-    opacity: 0.75;
-  }
-
-  .photo-overlay-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(#000, 0.2) 0%,
-      transparent 30%,
-      transparent 70%,
-      rgba(#000, 0.6) 100%
-    );
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 14px rgba($blue, 0.25));
   }
 }
 
 // =============================================
 // BOTTOM TAGLINE
 // =============================================
-.bottom-tagline {
+.cp-tagline {
   background: $bg;
-  padding: 56px 24px;
+  padding: 40px 24px 64px;
   text-align: center;
-  border-top: 1px solid rgba($red, 0.15);
-}
-
-.tagline-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  max-width: 700px;
-  margin: 0 auto 32px;
-  flex-wrap: wrap;
 
   p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    color: rgba($white, 0.7);
-    line-height: 1.7;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: $white;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
   }
-}
 
-.star-red {
-  color: $red;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-  text-shadow: 0 0 8px rgba($red, 0.5);
-}
-
-.never-forget {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.3em;
-  color: $red;
-  text-shadow: 0 0 8px rgba($red, 0.4);
-  font-style: italic;
-}
-
-.tagline-ctas {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn-catering-cta {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: $red;
-  color: $white;
-  padding: 14px 36px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: c.adjust($red, $lightness: 8%);
-    box-shadow: 0 0 18px rgba($red, 0.5);
+  i {
+    color: $white;
+    font-size: 0.9rem;
   }
-}
 
-.btn-catering-outline {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: transparent;
-  color: $white;
-  border: 2px solid rgba($white, 0.5);
-  padding: 14px 36px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    border-color: $red;
-    color: $red;
-    box-shadow: 0 0 12px rgba($red, 0.3);
-  }
+  em { font-style: italic; }
 }
