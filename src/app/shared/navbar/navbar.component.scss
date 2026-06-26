@@ -135,7 +135,7 @@ $white: #ffffff;
   border: 1.5px solid $red;
   padding: 10px 22px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba($red, 0.5), inset 0 0 10px rgba($red, 0.06);
+  box-shadow: 0 0 4px rgba($red, 0.3);
   transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
   svg {
@@ -144,7 +144,7 @@ $white: #ffffff;
 
   &:hover {
     background: $red;
-    box-shadow: 0 0 20px rgba($red, 0.7), inset 0 0 14px rgba(#fff, 0.08);
+    box-shadow: 0 0 8px rgba($red, 0.45);
 
     svg { transform: translateX(2px); }
   }

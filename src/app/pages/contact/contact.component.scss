@@ -138,14 +138,14 @@ $bg-card: #111111;
 .reach-icon {
   width: 44px;
   height: 44px;
-  border: 1.5px solid rgba($red, 0.5);
+  border: 1.5px solid $red;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: $red;
   margin-bottom: 4px;
-  box-shadow: 0 0 10px rgba($red, 0.2);
+  box-shadow: 0 0 3px rgba($red, 0.25);
 
   svg { width: 20px; height: 20px; }
 }
